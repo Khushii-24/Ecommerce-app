@@ -459,6 +459,75 @@ textarea {
   box-shadow: var(--shadow-soft);
 }
 
+/*Shop*/
+.shop-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.shop-filters {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.4rem 1.2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  align-self: flex-start;
+}
+
+.filter-group {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.shop-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.shop-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.shop-sort select {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.8rem;
+  background: #ffffff;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-filters {
+    order: 2;
+  }
+}
+
+
 /* Footer */
 .site-footer {
   border-top: 1px solid var(--border);
