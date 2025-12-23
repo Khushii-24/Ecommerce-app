@@ -2,60 +2,146 @@ import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
-import ProductModal from "../components/ProductModal";
 
 export default function Shop() {
-  const [params] = useSearchParams();
+  const [params, setParams] = useSearchParams();
   const [visibleCount, setVisibleCount] = useState(9);
-  const [selected, setSelected] = useState(null);
 
-  const filter = params.get("filter"); // men / women / accessories
+  const categoryFilter = params.get("category") || "all";
+  const sortBy = params.get("sort") || "featured";
 
-  const filteredProducts = useMemo(() => {
-    if (!filter) return products;
-    return products.filter((p) => p.category === filter);
-  }, [filter]);
+  const handleCategoryChange = (value) => {
+    const next = new URLSearchParams(params);
+    if (value === "all") next.delete("category");
+    else next.set("category", value);
+    setParams(next, { replace: true });
+  };
+
+  const handleSortChange = (value) => {
+    const next = new URLSearchParams(params);
+    next.set("sort", value);
+    setParams(next, { replace: true });
+  };
+
+  const filteredAndSorted = useMemo(() => {
+    let list = [...products];
+
+    // filter by category
+    if (categoryFilter !== "all") {
+      list = list.filter((p) => p.category === categoryFilter);
+    }
+
+    // sort
+    if (sortBy === "price-asc") {
+      list.sort((a, b) => a.price - b.price);
+    } else if (sortBy === "price-desc") {
+      list.sort((a, b) => b.price - a.price);
+    } else if (sortBy === "alpha-asc") {
+      list.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === "alpha-desc") {
+      list.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortBy === "best-selling") {
+      // needs a field like popularity or soldCount on each product
+      list.sort((a, b) => (b.soldCount || 0) - (a.soldCount || 0));
+    }
+
+    return list;
+  }, [categoryFilter, sortBy]);
 
   return (
     <section className="section">
-      <div className="container">
-        <div className="section-header">
-          <h1>Shop</h1>
-          <div className="filters">
-            <span>All</span>
-            <span> / Men</span>
-            <span> / Women</span>
-            <span> / Accessories</span>
+      <div className="container shop-layout">
+        {/* LEFT FILTER SIDEBAR */}
+        <aside className="shop-filters">
+          <h3>Filter</h3>
+          <div className="filter-group">
+            <p className="filter-label">Category</p>
+            <label>
+              <input
+                type="radio"
+                name="category"
+                value="all"
+                checked={categoryFilter === "all"}
+                onChange={() => handleCategoryChange("all")}
+              />
+              All
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="category"
+                value="men"
+                checked={categoryFilter === "men"}
+                onChange={() => handleCategoryChange("men")}
+              />
+              Men
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="category"
+                value="women"
+                checked={categoryFilter === "women"}
+                onChange={() => handleCategoryChange("women")}
+              />
+              Women
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="category"
+                value="accessories"
+                checked={categoryFilter === "accessories"}
+                onChange={() => handleCategoryChange("accessories")}
+              />
+              Accessories
+            </label>
           </div>
-        </div>
+        </aside>
 
-        <div className="grid">
-          {filteredProducts.slice(0, visibleCount).map((p) => (
-            <ProductCard
-              key={p.id}
-              product={p}
-              onOpenModal={setSelected}
-            />
-          ))}
-        </div>
-
-        {visibleCount < filteredProducts.length && (
-          <div className="section-actions">
-            <button
-              className="btn btn-outline"
-              onClick={() => setVisibleCount((c) => c + 9)}
-            >
-              Load More
-            </button>
+        {/* RIGHT LIST + SORT */}
+        <div className="shop-main">
+          <div className="shop-toolbar">
+            <h1>Shop</h1>
+            <div className="shop-sort">
+              <span>Sort by:</span>
+              <select
+                value={sortBy}
+                onChange={(e) => handleSortChange(e.target.value)}
+              >
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="alpha-asc">Name: A–Z</option>
+                <option value="alpha-desc">Name: Z–A</option>
+                <option value="best-selling">Best Selling</option>
+              </select>
+            </div>
           </div>
-        )}
+
+          <div className="grid">
+            {filteredAndSorted.slice(0, visibleCount).map((p) => (
+              <ProductCard
+                key={p.id}
+                product={p}
+                // product click will redirect to product page now (see below)
+                mode="link"
+              />
+            ))}
+          </div>
+
+          {visibleCount < filteredAndSorted.length && (
+            <div className="section-actions">
+              <button
+                className="btn btn-outline"
+                onClick={() => setVisibleCount((c) => c + 9)}
+              >
+                Load More
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-
-      <ProductModal
-        open={!!selected}
-        onClose={() => setSelected(null)}
-        product={selected}
-      />
     </section>
   );
 }
