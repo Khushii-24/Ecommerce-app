@@ -48,9 +48,10 @@ export default function Header() {
 
           {user ? (
             <>
-              <span className="header-user">
+              {/* name is clickable link to profile */}
+              <NavLink to="/profile" className="header-user">
                 {user.name || user.email}
-              </span>
+              </NavLink>
               <button
                 className="btn btn-outline"
                 type="button"

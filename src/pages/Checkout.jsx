@@ -2,15 +2,28 @@ import { useState } from "react";
 import { useCart } from "../context/CartContext";
 import { formatINR } from "../utils/currency";
 import { useNavigate } from "react-router-dom";
+import { useOrders } from "../context/OrderContext";
 
 export default function Checkout() {
-  const { items, total } = useCart();
+  const { items, total } = useCart(); // call once
+  const { addOrder } = useOrders();
   const [payment, setPayment] = useState("upi");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // call backend payment in real app
+    const formData = new FormData(e.target);
+    const shipping = Object.fromEntries(formData.entries());
+    const order = {
+      id: Date.now().toString(),
+      items,
+      total,
+      shipping,
+      createdAt: new Date().toISOString(),
+      paymentMethod: payment,
+    };
+
+    addOrder(order);
     navigate("/order-confirmation", { replace: true });
   };
 
@@ -23,29 +36,30 @@ export default function Checkout() {
             <h3>Shipping Details</h3>
             <label>
               Full Name
-              <input required />
+              <input name="fullName" required />
             </label>
             <label>
               Address
-              <input required />
+              <input name="address" required />
             </label>
             <label>
               City
-              <input required />
+              <input name="city" required />
             </label>
             <label>
               PIN Code
-              <input required />
+              <input name="pinCode" required />
             </label>
             <label>
               Phone
-              <input required />
+              <input name="phone" required />
             </label>
 
             <h3>Payment</h3>
             <label>
               <input
                 type="radio"
+                name="paymentMethod"
                 value="upi"
                 checked={payment === "upi"}
                 onChange={(e) => setPayment(e.target.value)}
@@ -55,6 +69,7 @@ export default function Checkout() {
             <label>
               <input
                 type="radio"
+                name="paymentMethod"
                 value="card"
                 checked={payment === "card"}
                 onChange={(e) => setPayment(e.target.value)}
@@ -64,6 +79,7 @@ export default function Checkout() {
             <label>
               <input
                 type="radio"
+                name="paymentMethod"
                 value="netbanking"
                 checked={payment === "netbanking"}
                 onChange={(e) => setPayment(e.target.value)}

@@ -20,6 +20,7 @@ import TermsConditions from '../pages/TermsConditions';
 import Contact from '../pages/Contact';
 import ProtectedRoute from '../components/ProtectedRoute';
 import Profile from '../pages/Profile';
+import ProductPage from "../pages/ProductPage";
 
 const AppRouter = () => {
   return (
@@ -43,6 +44,8 @@ const AppRouter = () => {
               </ProtectedRoute>
             }
           />
+          <Route path="/product/:id" element={<ProductPage />} />
+
           <Route
             path="/cart"
             element={

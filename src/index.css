@@ -74,6 +74,12 @@ img {
   top: 0;
   z-index: 50;
 }
+.header-user {
+  font-size: 0.9rem;
+}
+.header-user:hover {
+  text-decoration: underline;
+}
 
 .header-inner {
   display: flex;
@@ -160,6 +166,205 @@ img {
   font-size: 0.85rem;
 }
 
+/*Profile*/
+.profile-page {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.profile-summary {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 0.75rem;
+  background: var(--accent);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.profile-summary h2 {
+  margin: 0 0 0.25rem;
+}
+
+.profile-email {
+  margin: 0 0 1.2rem;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.profile-links a:hover {
+  text-decoration: underline;
+}
+
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-section {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem 1.6rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
+}
+
+.orders-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.order-card + .order-card {
+  margin-top: 1rem;
+}
+
+.order-card {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 0.9rem 1rem;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-id {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.order-total {
+  font-weight: 600;
+}
+
+.order-date {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.order-items {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  font-size: 0.9rem;
+}
+
+.order-items li + li {
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 900px) {
+  .profile-page {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-summary {
+    text-align: left;
+  }
+}
+
+/*product page*/
+.product-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+  gap: 3rem;
+}
+
+.product-page-image img {
+  border-radius: 18px;
+  width: 100%;
+  display: block;
+}
+
+.product-page-content h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.product-page-price {
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.product-page-sizes .label {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.size-pill {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.9rem;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.size-pill--active {
+  border-color: var(--accent);
+  background: #000;
+  color: #fff;
+}
+
+.product-page-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.3rem 0 1.6rem;
+}
+
+.btn-wish-active {
+  background: #fff1f1;
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+.product-page-details h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.product-page-details p {
+  margin: 0 0 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .product-page {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Buttons */
 .btn {
   border-radius: 999px;
@@ -217,9 +422,13 @@ img {
 }
 
 .hero-image {
-  background: url("/images/hero.jpg") center/cover no-repeat;
+  width: 100%;
+  aspect-ratio: 4 / 5;
   border-radius: 18px;
-  min-height: 260px;
+  background-image: url("/images/home-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Grid */
@@ -238,7 +447,7 @@ img {
 
 /* make images taller / thicker only in category grid */
 .grid--category-products .product-image-wrapper {
-  aspect-ratio: 2 / 3;      /* more vertical = looks thicker */
+  aspect-ratio: 2 / 3; /* more vertical = looks thicker */
 }
 
 /* you can also enlarge the card padding if you want */
@@ -269,14 +478,14 @@ img {
 /* FIXED IMAGE RATIO SO ALL THREE ARE EQUAL */
 .category-card-image {
   width: 100%;
-  aspect-ratio: 3 / 4;        /* same height for Men/Women/Accessories */
+  aspect-ratio: 3 / 4; /* same height for Men/Women/Accessories */
   overflow: hidden;
 }
 
 .category-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* crops but keeps proportion equal */
+  object-fit: cover; /* crops but keeps proportion equal */
   display: block;
 }
 
@@ -285,7 +494,6 @@ img {
   padding: 1rem 1.25rem 1.25rem;
   margin: 0;
 }
-
 
 /* Product card */
 .product-card {
@@ -317,7 +525,6 @@ img {
   object-fit: cover;
   display: block;
 }
-
 
 .product-info {
   padding: 0.9rem 1rem 1.1rem;
@@ -360,7 +567,7 @@ img {
   border-radius: 18px;
   max-width: 840px;
   width: 100%;
-  max-height: 80vh;            /* constrain overall height */
+  max-height: 80vh; /* constrain overall height */
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
   gap: 2rem;
@@ -452,6 +659,74 @@ textarea {
   padding: 2rem;
   border-radius: 20px;
   box-shadow: var(--shadow-soft);
+}
+
+/*Shop*/
+.shop-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.shop-filters {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.4rem 1.2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  align-self: flex-start;
+}
+
+.filter-group {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.shop-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.shop-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.shop-sort select {
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.8rem;
+  background: #ffffff;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-filters {
+    order: 2;
+  }
 }
 
 /* Footer */
