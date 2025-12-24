@@ -5,6 +5,9 @@ export const products = [
     name: "Structured Maroon Shirt",
     category: "men",
     price: 2499,
+    color: "maroon", // Added color field
+    sizes: ["M", "L", "XL"], // Added available sizes
+    soldCount: 120, // Added sold count for sorting best-selling
     image: "/images/men-maroon-shirt.png",
     details: {
       productDetails: [
@@ -13,9 +16,7 @@ export const products = [
         "Long sleeves",
         "Cotton fabric",
       ],
-      sizeFit: [
-        'The model (height 6\'1") is wearing a size M',
-      ],
+      sizeFit: ["The model (height 6'1\") is wearing a size M"],
       materialCare: ["Cotton", "Machine wash cold"],
       specifications: [
         "Collar: Spread collar",
@@ -31,6 +32,9 @@ export const products = [
     name: "Tailored Navy Blazer",
     category: "men",
     price: 5999,
+    color: "blue", // Added color field
+    sizes: ["38", "40", "42"], // Added available sizes
+    soldCount: 85, // Added sold count for sorting best-selling
     image: "/images/men-navy-blazer.jpg",
     details: {
       productDetails: [
@@ -39,9 +43,7 @@ export const products = [
         "Notch lapels",
         "Wool blend fabric",
       ],
-      sizeFit: [
-        'The model (height 6\'0") is wearing a size 40',
-      ],
+      sizeFit: ["The model (height 6'0\") is wearing a size 40"],
       materialCare: ["Wool blend", "Dry clean only"],
       specifications: [
         "Lining: Fully lined",
@@ -56,6 +58,9 @@ export const products = [
     name: "Black Wide-Leg Trousers",
     category: "men",
     price: 3199,
+    color: "black", // Added color field
+    sizes: ["32", "34", "36"], // Added available sizes
+    soldCount: 200, // Added sold count for sorting best-selling
     image: "/images/men-black-trousers.png",
     details: {
       productDetails: [
@@ -64,9 +69,7 @@ export const products = [
         "Mid-rise, flat-front",
         "Woven suiting fabric",
       ],
-      sizeFit: [
-        'The model (height 6\'0") is wearing a size 32',
-      ],
+      sizeFit: ["The model (height 6'0\") is wearing a size 32"],
       materialCare: ["Polyester blend", "Dry Clean Only"],
       specifications: [
         "Sleeve Length: Sleeveless",
@@ -85,6 +88,9 @@ export const products = [
     name: "Off-White Linen Shirt",
     category: "men",
     price: 2799,
+    color: "white", // Added color field
+    sizes: ["M", "L"], // Added available sizes
+    soldCount: 75, // Added sold count for sorting best-selling
     image: "/images/men-linen-shirt.png",
     details: {
       productDetails: [
@@ -93,9 +99,7 @@ export const products = [
         "Short sleeves",
         "Breathable linen fabric",
       ],
-      sizeFit: [
-        'The model (height 5\'11") is wearing a size L',
-      ],
+      sizeFit: ["The model (height 5'11\") is wearing a size L"],
       materialCare: ["Linen", "Machine wash cold"],
       specifications: [
         "Collar: Button-down collar",
@@ -110,6 +114,9 @@ export const products = [
     name: "Minimalist White Sneakers",
     category: "men",
     price: 4499,
+    color: "white", // Added color field
+    sizes: ["8", "9", "10"], // Added available sizes
+    soldCount: 150, // Added sold count for sorting best-selling
     image: "/images/men-white-sneakers.png",
     details: {
       productDetails: [
@@ -118,9 +125,7 @@ export const products = [
         "Vegan leather upper",
         "Rubber sole",
       ],
-      sizeFit: [
-        'The model (shoe size 10) is wearing a size 10',
-      ],
+      sizeFit: ["The model (shoe size 10) is wearing a size 10"],
       materialCare: ["Vegan leather", "Wipe clean with a damp cloth"],
       specifications: [
         "Sole: Rubber",
@@ -136,6 +141,9 @@ export const products = [
     name: "Maroon Regular Top",
     category: "women",
     price: 1999,
+    color: "maroon", // Added color field
+    sizes: ["S", "M", "L"], // Added available sizes
+    soldCount: 90, // Added sold count for sorting best-selling
     image: "/images/women-maroon-top.png",
     details: {
       productDetails: [
@@ -144,9 +152,7 @@ export const products = [
         "Short sleeves",
         "Cotton fabric",
       ],
-      sizeFit: [
-        'The model (height 5\'7") is wearing a size S',
-      ],
+      sizeFit: ["The model (height 5'7\") is wearing a size S"],
       materialCare: ["Cotton", "Machine wash cold"],
       specifications: [
         "Fit: Regular fit",
@@ -160,6 +166,9 @@ export const products = [
     name: "Ivory Satin Slip Dress",
     category: "women",
     price: 4299,
+    color: "white", // Added color field
+    sizes: ["S", "M", "L"], // Added available sizes
+    soldCount: 60, // Added sold count for sorting best-selling
     image: "/images/women-satin-dress.jpg",
     details: {
       productDetails: [
@@ -168,9 +177,7 @@ export const products = [
         "Midi length",
         "Silk satin fabric",
       ],
-      sizeFit: [
-        'The model (height 5\'8") is wearing a size M',
-      ],
+      sizeFit: ["The model (height 5'8\") is wearing a size M"],
       materialCare: ["Silk", "Dry clean only"],
       specifications: [
         "Neck: V-neck",
@@ -186,6 +193,9 @@ export const products = [
     name: "Black Wide-Leg Trousers",
     category: "women",
     price: 3499,
+    color: "black", // Added color field
+    sizes: ["28", "30", "32"], // Added available sizes
+    soldCount: 130, // Added sold count for sorting best-selling
     image: "/images/women-trousers.png",
     details: {
       productDetails: [
@@ -194,9 +204,7 @@ export const products = [
         "Mid-rise, flat-front",
         "Woven suiting fabric",
       ],
-      sizeFit: [
-        'The model (height 5\'9") is wearing a size 28',
-      ],
+      sizeFit: ["The model (height 5'9\") is wearing a size 28"],
       materialCare: ["Polyester blend", "Dry Clean Only"],
       specifications: [
         "Sleeve Length: Sleeveless",
@@ -215,6 +223,9 @@ export const products = [
     name: "Camel Oversized Blazer",
     category: "women",
     price: 5599,
+    color: "camel", // Added color field
+    sizes: ["M", "L"], // Added available sizes
+    soldCount: 50, // Added sold count for sorting best-selling
     image: "/images/women-blazer.png",
     details: {
       productDetails: [
@@ -223,9 +234,7 @@ export const products = [
         "Notch lapels",
         "Wool blend fabric",
       ],
-      sizeFit: [
-        'The model (height 5\'8") is wearing a size M',
-      ],
+      sizeFit: ["The model (height 5'8\") is wearing a size M"],
       materialCare: ["Wool blend", "Dry clean only"],
       specifications: [
         "Lining: Fully lined",
@@ -240,6 +249,9 @@ export const products = [
     name: "Beige Ribbed Knit Top",
     category: "women",
     price: 1799,
+    color: "beige", // Added color field
+    sizes: ["S", "M", "L"], // Added available sizes
+    soldCount: 110, // Added sold count for sorting best-selling
     image: "/images/women-knit-top.jpg",
     details: {
       productDetails: [
@@ -248,9 +260,7 @@ export const products = [
         "Long sleeves",
         "Stretchy cotton fabric",
       ],
-      sizeFit: [
-        'The model (height 5\'7") is wearing a size S',
-      ],
+      sizeFit: ["The model (height 5'7\") is wearing a size S"],
       materialCare: ["Cotton", "Machine wash cold"],
       specifications: [
         "Fit: Slim fit",
@@ -266,6 +276,9 @@ export const products = [
     name: "Textured Leather Belt",
     category: "accessories",
     price: 1599,
+    color: "black", // Added color field
+    sizes: ["M", "L"], // Added available sizes
+    soldCount: 50, // Added sold count for sorting best-selling
     image: "/images/accessory-belt.png",
     details: {
       productDetails: [
@@ -274,9 +287,7 @@ export const products = [
         "1.5-inch width",
         "Genuine leather",
       ],
-      sizeFit: [
-        'The model is wearing a size M',
-      ],
+      sizeFit: ["The model is wearing a size M"],
       materialCare: ["Genuine leather", "Wipe clean with a dry cloth"],
       specifications: [
         "Buckle Type: Gold-tone",
@@ -290,6 +301,9 @@ export const products = [
     name: "Minimalist Gold Watch",
     category: "accessories",
     price: 7999,
+    color: "gold", // Added color field
+    sizes: ["one-size"], // Added available sizes
+    soldCount: 80, // Added sold count for sorting best-selling
     image: "/images/accessory-watch.png",
     details: {
       productDetails: [
@@ -298,9 +312,7 @@ export const products = [
         "Quartz movement",
         "Water-resistant",
       ],
-      sizeFit: [
-        'The model (wrist size 6.5") is wearing a standard size',
-      ],
+      sizeFit: ['The model (wrist size 6.5") is wearing a standard size'],
       materialCare: ["Stainless steel", "Wipe clean with a soft cloth"],
       specifications: [
         "Dial: Round",
@@ -315,6 +327,9 @@ export const products = [
     name: "Structured Tote Bag",
     category: "accessories",
     price: 3999,
+    color: "beige", // Added color field
+    sizes: ["one-size"], // Added available sizes
+    soldCount: 95, // Added sold count for sorting best-selling
     image: "/images/accessory-tote.jpg",
     details: {
       productDetails: [
@@ -323,13 +338,11 @@ export const products = [
         "Zipper closure",
         "Synthetic leather",
       ],
-      sizeFit: [
-        'The model is carrying the medium size',
-      ],
+      sizeFit: ["The model is carrying the medium size"],
       materialCare: ["Synthetic leather", "Wipe clean with a damp cloth"],
       specifications: [
         "Handles: Two top handles",
-        "Dimensions: 15\" x 12\" x 5\"",
+        'Dimensions: 15" x 12" x 5"',
         "Closure: Zipper",
         "Number of Items: 1",
       ],
@@ -340,6 +353,9 @@ export const products = [
     name: "Matte Black Sunglasses",
     category: "accessories",
     price: 2499,
+    color: "black", // Added color field
+    sizes: ["one-size"], // Added available sizes
+    soldCount: 140, // Added sold count for sorting best-selling
     image: "/images/accessory-sunglasses.png",
     details: {
       productDetails: [
@@ -348,9 +364,7 @@ export const products = [
         "Square frames",
         "Polarized lenses",
       ],
-      sizeFit: [
-        'One size fits most',
-      ],
+      sizeFit: ["One size fits most"],
       materialCare: ["Plastic frame", "Clean with microfiber cloth"],
       specifications: [
         "Frame Material: Plastic",
@@ -364,6 +378,9 @@ export const products = [
     name: "Woven Scarf",
     category: "accessories",
     price: 1299,
+    color: "maroon", // Added color field
+    sizes: ["one-size"], // Added available sizes
+    soldCount: 100, // Added sold count for sorting best-selling
     image: "/images/accessory-scarf.png",
     details: {
       productDetails: [
@@ -372,12 +389,10 @@ export const products = [
         "Soft wool blend",
         "Versatile design",
       ],
-      sizeFit: [
-        'One size fits all',
-      ],
+      sizeFit: ["One size fits all"],
       materialCare: ["Wool blend", "Hand wash cold"],
       specifications: [
-        "Dimensions: 70\" x 12\"",
+        'Dimensions: 70" x 12"',
         "Material: Wool blend",
         "Number of Items: 1",
       ],
