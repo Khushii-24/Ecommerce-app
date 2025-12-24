@@ -36,19 +36,19 @@ export default function CategoryTemplate({ category, title, heroImage }) {
       });
     }
 
-    // // COLOR
-    // if (colorFilter !== "all") {
-    //   list = list.filter(
-    //     (p) => p.color && p.color.toLowerCase() === colorFilter
-    //   );
-    // }
+    // COLOR
+    if (colorFilter !== "all") {
+      list = list.filter(
+        (p) => p.color && p.color.toLowerCase() === colorFilter
+      );
+    }
 
-    // // SIZE
-    // if (sizeFilter !== "all") {
-    //   list = list.filter(
-    //     (p) => Array.isArray(p.sizes) && p.sizes.includes(sizeFilter)
-    //   );
-    // }
+    // SIZE
+    if (sizeFilter !== "all") {
+      list = list.filter(
+        (p) => Array.isArray(p.sizes) && p.sizes.includes(sizeFilter)
+      );
+    }
 
     // SORT
     if (sortBy === "price-asc") {
@@ -64,7 +64,7 @@ export default function CategoryTemplate({ category, title, heroImage }) {
     }
 
     return list;
-  }, [category, priceFilter, sortBy]);
+  }, [category, priceFilter, colorFilter, sizeFilter, sortBy]);
 
   return (
     <>
@@ -75,9 +75,9 @@ export default function CategoryTemplate({ category, title, heroImage }) {
             <h1>{title}</h1>
             <p>Essential {title.toLowerCase()} pieces for every day.</p>
           </div>
-          {/* <div className="category-hero-image">
+          <div className="category-hero-image">
             <img src={heroImage} alt={title} />
-          </div> */}
+          </div>
         </div>
       </section>
 

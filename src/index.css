@@ -1,17 +1,18 @@
 :root {
-  --bg: #f7f6f4;
+  --bg: #f7f4f0;
   --fg: #111111;
-  --muted: #e5e1da;
-  --border: #d6d0c6;
+  --muted: #efe2d7;
+  --border: #d6c6b8;
   --accent: #111111;
-  --accent-soft: #2a2a2a;
+  --accent-soft: #f0d8c8;
   --error: #c0392b;
   --radius: 8px;
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: "Playfair Display", "Times New Roman", serif;
 }
 
+/* RESET */
 *,
 *::before,
 *::after {
@@ -45,7 +46,7 @@ img {
   flex: 1;
 }
 
-/* Layout helpers */
+/* Layout */
 .container {
   max-width: 1120px;
   margin: 0 auto;
@@ -66,19 +67,13 @@ img {
   min-height: calc(100vh - 120px);
 }
 
-/* Header */
+/* HEADER */
 .site-header {
   border-bottom: 1px solid var(--border);
   background: #ffffff;
   position: sticky;
   top: 0;
   z-index: 50;
-}
-.header-user {
-  font-size: 0.9rem;
-}
-.header-user:hover {
-  text-decoration: underline;
 }
 
 .header-inner {
@@ -166,7 +161,15 @@ img {
   font-size: 0.85rem;
 }
 
-/*Profile*/
+.header-user {
+  font-size: 0.9rem;
+}
+
+.header-user:hover {
+  text-decoration: underline;
+}
+
+/* PROFILE PAGE */
 .profile-page {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
@@ -279,17 +282,7 @@ img {
   margin-top: 0.2rem;
 }
 
-@media (max-width: 900px) {
-  .profile-page {
-    grid-template-columns: 1fr;
-  }
-
-  .profile-summary {
-    text-align: left;
-  }
-}
-
-/*product page*/
+/* PRODUCT PAGE */
 .product-page {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
@@ -359,13 +352,7 @@ img {
   margin: 0 0 0.35rem;
 }
 
-@media (max-width: 900px) {
-  .product-page {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Buttons */
+/* BUTTONS */
 .btn {
   border-radius: 999px;
   padding: 0.65rem 1.4rem;
@@ -398,9 +385,10 @@ img {
   padding: 0.45rem 1rem;
 }
 
-/* Hero */
+/* HERO */
 .hero {
   padding: 4rem 0 3rem;
+  background: linear-gradient(135deg, #fdf7f4 0%, #f7f4f0 45%, #fdf7f4 100%);
 }
 
 .hero-inner {
@@ -431,35 +419,18 @@ img {
   background-repeat: no-repeat;
 }
 
-/* Grid */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
 }
 
-/* default layout for other pages stays as-is */
-
-/* CATEGORY-ONLY: thicker card images */
-.grid--category-products .product-card {
-  border-radius: 18px;
-}
-
-/* make images taller / thicker only in category grid */
-.grid--category-products .product-image-wrapper {
-  aspect-ratio: 2 / 3; /* more vertical = looks thicker */
-}
-
-/* you can also enlarge the card padding if you want */
-.grid--category-products .product-info {
-  padding: 1.1rem 1.2rem 1.3rem;
-}
-/* grid layout for categories */
+/* CATEGORY CARDS */
 .grid--categories {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* the card itself */
 .category-card {
   border-radius: 18px;
   overflow: hidden;
@@ -475,27 +446,37 @@ img {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
 
-/* FIXED IMAGE RATIO SO ALL THREE ARE EQUAL */
 .category-card-image {
   width: 100%;
-  aspect-ratio: 3 / 4; /* same height for Men/Women/Accessories */
+  aspect-ratio: 3 / 4;
   overflow: hidden;
 }
 
 .category-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* crops but keeps proportion equal */
+  object-fit: cover;
   display: block;
 }
 
-/* title area */
 .category-card h3 {
   padding: 1rem 1.25rem 1.25rem;
   margin: 0;
 }
 
-/* Product card */
+/* PRODUCT CARD */
+.grid--category-products .product-card {
+  border-radius: 18px;
+}
+
+.grid--category-products .product-image-wrapper {
+  aspect-ratio: 2 / 3;
+}
+
+.grid--category-products .product-info {
+  padding: 1.1rem 1.2rem 1.3rem;
+}
+
 .product-card {
   position: relative;
   background: #ffffff;
@@ -511,6 +492,7 @@ img {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
+
 .product-image-wrapper {
   width: 100%;
   height: 280px;
@@ -551,7 +533,7 @@ img {
   color: #c0392b;
 }
 
-/* Modal */
+/* MODAL */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -567,7 +549,7 @@ img {
   border-radius: 18px;
   max-width: 840px;
   width: 100%;
-  max-height: 80vh; /* constrain overall height */
+  max-height: 80vh;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
   gap: 2rem;
@@ -582,13 +564,11 @@ img {
   border-radius: 14px;
 }
 
-/* THIS MAKES THE TEXT SCROLLABLE */
 .modal-content {
   overflow-y: auto;
   padding-right: 0.5rem;
 }
 
-/* optional: style headings a bit */
 .modal-content h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -610,14 +590,7 @@ img {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .modal {
-    grid-template-columns: 1fr;
-    max-height: 90vh;
-  }
-}
-
-/* Forms */
+/* FORMS */
 .form {
   display: flex;
   flex-direction: column;
@@ -651,7 +624,7 @@ textarea {
   gap: 0.6rem;
 }
 
-/* Auth card */
+/* AUTH CARD */
 .auth-card {
   max-width: 420px;
   margin: 0 auto;
@@ -661,7 +634,7 @@ textarea {
   box-shadow: var(--shadow-soft);
 }
 
-/*Shop*/
+/* SHOP */
 .shop-layout {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
@@ -719,17 +692,7 @@ textarea {
   font-size: 0.85rem;
 }
 
-@media (max-width: 900px) {
-  .shop-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .shop-filters {
-    order: 2;
-  }
-}
-
-/* Footer */
+/* FOOTER */
 .site-footer {
   border-top: 1px solid var(--border);
   background: #ffffff;
@@ -755,7 +718,7 @@ textarea {
   color: #777;
 }
 
-/* Content pages */
+/* CONTENT PAGES */
 .content-page h1 {
   margin-bottom: 1rem;
 }
@@ -770,7 +733,29 @@ textarea {
   padding: 0.65rem 0;
 }
 
-/* Responsive */
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .profile-page {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-summary {
+    text-align: left;
+  }
+
+  .product-page {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-filters {
+    order: 2;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-inner {
     grid-template-columns: 1fr;
@@ -782,6 +767,6 @@ textarea {
   }
 
   .nav {
-    display: none; /* replace with mobile menu in real app */
+    display: none; /* mobile menu placeholder */
   }
 }
